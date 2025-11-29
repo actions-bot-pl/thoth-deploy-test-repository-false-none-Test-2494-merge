@@ -1,0 +1,15 @@
+name: Autoversion
+
+on:
+  schedule:
+    - cron: '0 0 * * 1' # TODO
+  workflow_dispatch:
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: plengauer/autoversion@v2.1.2
+        with:
+          github_token: ${{ secrets.ACTIONS_GITHUB_TOKEN }}
+          openai_token: ${{ secrets.OPENAI_TOKEN }} # TODO remove if no token is available
